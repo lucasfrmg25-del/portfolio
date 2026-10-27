@@ -346,6 +346,21 @@
             font-size: 1.1rem;
         }
 
+        /* Projetos */
+        .project-card { display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; align-items:center; }
+        .project-kicker { color:var(--primary-color); font-weight:700; text-transform:uppercase; letter-spacing:1.5px; font-size:.78rem; }
+        .project-metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; margin:1.4rem 0; }
+        .metric { background:var(--bg-color); border:1px solid var(--border-color); border-radius:7px; padding:1rem; text-align:center; }
+        .metric strong { display:block; color:var(--primary-color); font-size:1.25rem; }
+        .pipeline-mini { display:flex; flex-wrap:wrap; gap:.55rem; justify-content:center; }
+        .pipeline-mini span { border:1px solid var(--border-color); background:var(--bg-color); padding:.55rem .7rem; border-radius:5px; font-size:.78rem; }
+        .tech-float { position:fixed; z-index:0; pointer-events:none; color:var(--primary-color); opacity:.13; font-weight:700; letter-spacing:1px; animation:techFloat 8s ease-in-out infinite; }
+        .tech-float small { display:block; color:var(--text-muted); font-size:.6rem; text-align:center; }
+        .tf-pandas{left:4%;top:24%;font-size:1.05rem}.tf-seaborn{right:5%;top:35%;font-size:1rem;animation-delay:-2s}
+        .tf-matplotlib{left:5%;bottom:18%;font-size:.9rem;animation-delay:-4s}.tf-sklearn{right:4%;bottom:23%;font-size:1rem;animation-delay:-6s}
+        @keyframes techFloat {0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-18px) rotate(2deg)}}
+        @media(max-width:768px){.project-card{grid-template-columns:1fr}.project-metrics{grid-template-columns:1fr}.tech-float{display:none}}
+
         /* Assistente Robozinho Interativo */
         #robot-assistant-container {
             position: fixed;
@@ -509,6 +524,7 @@
                 <li><a href="#about">Resumo</a></li>
                 <li><a href="#experience">Experiência</a></li>
                 <li><a href="#skills">Competências</a></li>
+                <li><a href="#projects">Projetos</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
         </nav>
@@ -534,6 +550,11 @@
             <a href="#contact" class="btn btn-primary" style="background-color: var(--primary-color); color: #181a1b;">Entrar em Contato</a>
         </div>
     </section>
+
+    <div class="tech-float tf-pandas"><i class="fa-solid fa-table"></i> Pandas<small>DATA</small></div>
+    <div class="tech-float tf-seaborn"><i class="fa-solid fa-chart-area"></i> Seaborn<small>DATAVIZ</small></div>
+    <div class="tech-float tf-matplotlib"><i class="fa-solid fa-chart-line"></i> Matplotlib<small>PLOTS</small></div>
+    <div class="tech-float tf-sklearn"><i class="fa-solid fa-gears"></i> Scikit-learn<small>ML</small></div>
 
     <!-- Resumo Profissional -->
     <section id="about" class="content-section">
@@ -601,6 +622,29 @@
             <div class="skill-tag"><i class="fa-solid fa-chart-column"></i> Power BI (Em desenvolvimento)</div>
             <div class="skill-tag"><i class="fa-solid fa-id-card"></i> Onboarding & Validação PJ</div>
             <div class="skill-tag"><i class="fa-solid fa-brain"></i> Fundamentos de Inteligência Artificial</div>
+        </div>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projects" class="content-section">
+        <h2 class="section-title">Projetos</h2>
+        <p class="section-desc">Cases de dados e Fraud Analytics apresentados diretamente no portfólio.</p>
+        <div class="card project-card">
+            <div>
+                <span class="project-kicker">Machine Learning • Fraud Analytics</span>
+                <h3 style="font-size:1.65rem;margin-top:.45rem;">Fraud Analytics ML</h3>
+                <p style="color:var(--text-muted);margin-top:.8rem;">Estudo sobre como o desbalanceamento de classes e a escolha de métricas alteram a interpretação de um modelo de detecção de fraudes. Dois modelos de Regressão Logística são comparados sob as mesmas condições.</p>
+                <div class="project-metrics">
+                    <div class="metric"><strong>555.719</strong><span>transações</span></div>
+                    <div class="metric"><strong>0,39%</strong><span>taxa de fraude</span></div>
+                    <div class="metric"><strong>74,13%</strong><span>recall balanceado</span></div>
+                </div>
+                <a href="fraud-analytics-ml.html" class="btn btn-primary">Explorar projeto no site</a>
+            </div>
+            <div class="pipeline-mini" aria-label="Pipeline do projeto">
+                <span>Dataset</span><span>→</span><span>EDA</span><span>→</span><span>KPIs</span><span>→</span>
+                <span>Split</span><span>→</span><span>Logistic Regression</span><span>→</span><span>Balanceamento</span><span>→</span><span>Decisão</span>
+            </div>
         </div>
     </section>
 
